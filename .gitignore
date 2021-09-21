@@ -2,3 +2,4 @@ _build/
 _tailscale/
 spks/
 logs
+.DS_Store
