@@ -16,6 +16,9 @@ tailscale-release-%:
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "6" ${RELEASE_VERSION_ARG}
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "7" ${RELEASE_VERSION_ARG}
 
+build-using-docker:
+	docker run -v `pwd`:/project -w /project buildpack-deps:latest make 
+	
 tailscale-%:
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "6" ${SIDELOAD_VERSION_ARG}
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "7" ${SIDELOAD_VERSION_ARG}

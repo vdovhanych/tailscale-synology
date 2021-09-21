@@ -49,6 +49,14 @@ make
 ```
 If everything worked you should have a directory called `spks` that contains your SPK files.
 
+### Building on MacOSX
+
+The build scripts currently aren't compatible with MacOSX, as an alternative you can build using [Docker](https://www.docker.com).
+
+```bash
+make build-using-docker
+```
+
 > **_NOTE:_** For building on macOS the GNU core utilites are required. Homebrew users can run `brew install coreutils` and set the `PATH` variable accordingly.
 
 ## Credits and References
