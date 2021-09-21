@@ -1,7 +1,7 @@
-TAILSCALE_VERSION ?= "1.14.0"
+TAILSCALE_VERSION ?= "1.14.3"
 TAILSCALE_TRACK = "stable"
 # This needs to be monotinically increasing regardless of the TAILSCALE_VERSION
-SPK_BUILD = "007"
+SPK_BUILD = "8"
 
 .PHONY: tailscale-% clean purge
 
@@ -18,7 +18,7 @@ tailscale-release-%:
 
 build-using-docker:
 	docker run -v `pwd`:/project -w /project buildpack-deps:latest make 
-	
+
 tailscale-%:
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "6" ${SIDELOAD_VERSION_ARG}
 	@./build-package.sh ${TAILSCALE_TRACK} ${TAILSCALE_VERSION} $* ${SPK_BUILD} "7" ${SIDELOAD_VERSION_ARG}
